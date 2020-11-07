@@ -1,0 +1,8 @@
+Finding best n_estimators for RandomForestClassifier...
+the number of trees:1
+Done processing 1 trees (0.821sec)
+the number of trees:10
+Done processing 10 trees (4.670sec)
+the number of trees:100
+Done processing 100 trees (43.410sec)
+100 11.889821966512416
