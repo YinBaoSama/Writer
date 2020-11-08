@@ -150,7 +150,7 @@ basicstyle=\footnotesize\ttfamily}
 % title
 % TODO: Customize to your Own Title, Name, Address
 %
-\title{FLIP00 Final Assessment}%主标题
+\title{FLIP01 Interim Assessment}%主标题 %Interim 期中  %Final 期末
 \author{
 Cong Ma%作者
 \\
@@ -168,7 +168,7 @@ rf=\href{http://www.tulip.org.au}{%可以放一个链接
 %Last Changed By: \textsc{\gitCommitterName}\ \gitVtagn-\gitAbbrevHash\ (\gitAuthorDate)
 Last Changed By: \textsc{\gitCommitterName}\ \gitVtagn-\gitAbbrevHash\ (\gitAuthorDate)
 },
-cf={ FLIP00 Final Assessment },%会议名称同主标题
+cf={ FLIP01 Interim Assessment },%会议名称同主标题
 }
 
 
@@ -198,16 +198,22 @@ cf={ FLIP00 Final Assessment },%会议名称同主标题
 \begin{slide}{Kaggle Project Introduce}%副标题
 \begin{center}
 \twotonebox{\rotatebox{90}{Defn}}{\parbox{.86\textwidth}
-{    Kobe Bryant marked his retirement from the NBA 
-by scoring 60 points in his final game as a Los Angeles
- Laker on Wednesday, April 12, 2016. Drafted into the
- NBA at the age of 17, Kobe earned the sport’s highest 
-accolades throughout his long career.
-    Using 20 years of data on Kobe's swishes and misses, 
-can you predict which shots will find the bottom of the net?
- This competition is well suited for practicing classification basics,
- feature engineering, and time series analysis. Practice got Kobe 
-an eight-figure contract and 5 championship rings. What will you get from it?
+{    With all of the tweets circulating every second it is 
+hard to tell whether the sentiment behind a specific tweet will 
+impact a company, or a person's, brand for being viral (positive), 
+or devastate profit because it strikes a negative tone. Capturing
+sentiment in language is important in these times where decisions 
+and reactions are created and updated in seconds. But, which words 
+actually lead to the sentiment description? In this competition you
+will need to pick out the part of the tweet (word or phrase) that 
+reflects the sentiment.\\
+  In this competition we've extracted support phrases from Figure 
+  Eight's Data for Everyone platform. The dataset is titled Sentiment 
+  Analysis: Emotion in Text tweets with existing sentiment labels, 
+  used here under creative commons attribution 4.0. international
+   licence. Your objective in this competition is to construct a model 
+   that can do the same - look at the labeled sentiment for a given 
+   tweet and figure out what word or phrase best supports it.
 %\begin{itemize} 这里有他原本的描述
 %\item A teacher may be interested in the \textcolor{orange}{characteristics} that
 %make \textcolor{orange}{one student} \textcolor{orange}{distinctive} from others.
@@ -640,9 +646,9 @@ an eight-figure contract and 5 championship rings. What will you get from it?
 %Related Work - Outlying Aspects Mining
 \begin{itemize}
 \item
-Step One - \textcolor{green}{Check the data ,Data cleaning,Data process}
+Step One - \textcolor{green}{Download and Check the data ; Data process}
 \item
-Step Two - \textcolor{orange}{Data visualization}
+Step Two - \textcolor{orange}{Constructing emotion dictionary}
 \item
 Step Three - \textcolor{blue}{Build the model and select the optimal parameters }
 \item
@@ -971,7 +977,7 @@ Step Three - \textcolor{red}{Visualization parameters and process the test data 
 %%==========================================================================================
 
 
-\section{Check the data ,Data cleaning,Data process}
+\section{Download and Check the data ; Data process}
 
 %%==========================================================================================
 %%
@@ -1016,19 +1022,19 @@ Step Three - \textcolor{red}{Visualization parameters and process the test data 
 
 %%==========================================================================================
 %%
-\begin{slide}{Check the data ,Data cleaning,Data process}
+\begin{slide}{Check the data }
 
  \begin{itemize}
   \item
  \textcolor{orange}{First,let's check the data.}
 
  \begin{center}
-    \includegraphics[width=.9\linewidth,height=.3\linewidth]{D:/filp/program/Kobe.git/data/data.eps}
+    \includegraphics[width=.9\linewidth,height=.3\linewidth]{D:/filp/program/Writer.git/data/data.eps}
  \end{center}
 
 
  \item
- \textcolor{orange}{There must be variables in so much data that have nothing to do with our model, and we will remove them in some way.}
+ \textcolor{orange}{We will extract the eigenvalues from these texts.}
  \end{itemize}
 
 
@@ -1036,129 +1042,129 @@ Step Three - \textcolor{red}{Visualization parameters and process the test data 
 \end{slide}
 %[toc=,bm=]可以把一样的下面的页面合并在一起
 %locxy
-\begin{slide}{Data visualization}
+% \begin{slide}{Data visualization}
 
-  \begin{itemize}
+%   \begin{itemize}
 
-    \item
-   \textcolor{orange}{After we delete  blank data,we create charts to check the relationship between variable.}
+%     \item
+%    \textcolor{orange}{After we delete  blank data,we create charts to check the relationship between variable.}
 
-  \begin{center}
-      \includegraphics[width=.5\linewidth,height=.4\linewidth]{D:/filp/program/Kobe.git/data/locxy.eps}
-  \end{center}
+%   \begin{center}
+%       \includegraphics[width=.5\linewidth,height=.4\linewidth]{D:/filp/program/Kobe.git/data/locxy.eps}
+%   \end{center}
 
-  \item
-   \textcolor{orange}{We can make sure that the shooting position and latitude and longitude are basically consistent with the court.}
- \end{itemize}
+%   \item
+%    \textcolor{orange}{We can make sure that the shooting position and latitude and longitude are basically consistent with the court.}
+%  \end{itemize}
 
-\end{slide}
+% \end{slide}
 
-%shotzone
-\begin{slide}[toc=,bm=]{Data visualization}
+% %shotzone
+% \begin{slide}[toc=,bm=]{Data visualization}
 
-   \begin{center}
-      \includegraphics[width=.8\linewidth,height=.5\linewidth]{D:/filp/program/Kobe.git/data/shotzone.eps}
-   \end{center}
+%    \begin{center}
+%       \includegraphics[width=.8\linewidth,height=.5\linewidth]{D:/filp/program/Kobe.git/data/shotzone.eps}
+%    \end{center}
 
-\begin{itemize}
-  \item
-  \textcolor{orange}{The shotzone also has the same characteristic whth the lat and lon.}
+% \begin{itemize}
+%   \item
+%   \textcolor{orange}{The shotzone also has the same characteristic whth the lat and lon.}
 
- \end{itemize}
+%  \end{itemize}
 
-\end{slide}
+% \end{slide}
 
-%shotarea
-\begin{slide}[toc=,bm=]{Data visualization}
+% %shotarea
+% \begin{slide}[toc=,bm=]{Data visualization}
 
-  \begin{center}
-     \includegraphics[width=.5\linewidth,height=.5\linewidth]{D:/filp/program/Kobe.git/data/shotarea.eps}
-  \end{center}
+%   \begin{center}
+%      \includegraphics[width=.5\linewidth,height=.5\linewidth]{D:/filp/program/Kobe.git/data/shotarea.eps}
+%   \end{center}
 
-\begin{itemize}
- \item
- \textcolor{orange}{The shottype also has the same characteristic whth the lat and lon.}
+% \begin{itemize}
+%  \item
+%  \textcolor{orange}{The shottype also has the same characteristic whth the lat and lon.}
 
-\end{itemize}
+% \end{itemize}
 
-\end{slide}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%attack
-\begin{slide}[toc=,bm=]{Data visualization}
+% \end{slide}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %attack
+% \begin{slide}[toc=,bm=]{Data visualization}
 
-  \begin{center}
-     \includegraphics[width=.6\linewidth,height=.5\linewidth]{D:/filp/program/Kobe.git/data/attack.eps}
-  \end{center}
+%   \begin{center}
+%      \includegraphics[width=.6\linewidth,height=.5\linewidth]{D:/filp/program/Kobe.git/data/attack.eps}
+%   \end{center}
 
-\begin{itemize}
- \item
- \textcolor{orange}{Kobe's way of shooting, it is clear that the most jump shot.}
+% \begin{itemize}
+%  \item
+%  \textcolor{orange}{Kobe's way of shooting, it is clear that the most jump shot.}
 
-\end{itemize}
+% \end{itemize}
 
-\end{slide}
+% \end{slide}
 
-%getpoint
-\begin{slide}[toc=,bm=]{Data visualization}
+% %getpoint
+% \begin{slide}[toc=,bm=]{Data visualization}
 
-  \begin{center}
-     \includegraphics[width=.6\linewidth,height=.4\linewidth]{D:/filp/program/Kobe.git/data/getpoint.eps}
-  \end{center}
+%   \begin{center}
+%      \includegraphics[width=.6\linewidth,height=.4\linewidth]{D:/filp/program/Kobe.git/data/getpoint.eps}
+%   \end{center}
 
-\begin{itemize}
- \item
- \textcolor{orange}{On the shooting percentage, the dunk is undoubtedly the highest.}
+% \begin{itemize}
+%  \item
+%  \textcolor{orange}{On the shooting percentage, the dunk is undoubtedly the highest.}
 
-\end{itemize}
+% \end{itemize}
 
-\end{slide}
+% \end{slide}
 
-%shotnumber
-\begin{slide}[toc=,bm=]{Data visualization}
+% %shotnumber
+% \begin{slide}[toc=,bm=]{Data visualization}
 
-  \begin{center}
-     \includegraphics[width=.7\linewidth,height=.5\linewidth]{D:/filp/program/Kobe.git/data/shotnumber.eps}
-  \end{center}
+%   \begin{center}
+%      \includegraphics[width=.7\linewidth,height=.5\linewidth]{D:/filp/program/Kobe.git/data/shotnumber.eps}
+%   \end{center}
 
-\begin{itemize}
- \item
- \textcolor{orange}{From the shooting distance, most of Kobe is in the middle distance.}
+% \begin{itemize}
+%  \item
+%  \textcolor{orange}{From the shooting distance, most of Kobe is in the middle distance.}
 
-\end{itemize}
+% \end{itemize}
 
-\end{slide}
+% \end{slide}
 
-%period
-\begin{slide}[toc=,bm=]{Data visualization}
+% %period
+% \begin{slide}[toc=,bm=]{Data visualization}
 
-  \begin{center}
-     \includegraphics[width=.6\linewidth,height=.4\linewidth]{D:/filp/program/Kobe.git/data/period.eps}
-  \end{center}
+%   \begin{center}
+%      \includegraphics[width=.6\linewidth,height=.4\linewidth]{D:/filp/program/Kobe.git/data/period.eps}
+%   \end{center}
 
-\begin{itemize}
- \item
- \textcolor{orange}{Kobe's shooting times in each quarter are the most in the third quarter and the second in the first quarter.}
- \item
- \textcolor{orange}{Because the 5, 6 and 7 quarters are overtime games, naturally much less.}
-\end{itemize}
+% \begin{itemize}
+%  \item
+%  \textcolor{orange}{Kobe's shooting times in each quarter are the most in the third quarter and the second in the first quarter.}
+%  \item
+%  \textcolor{orange}{Because the 5, 6 and 7 quarters are overtime games, naturally much less.}
+% \end{itemize}
 
-\end{slide}
+% \end{slide}
 
-%peget
-\begin{slide}[toc=,bm=]{Data visualization}
+% %peget
+% \begin{slide}[toc=,bm=]{Data visualization}
 
-  \begin{center}
-     \includegraphics[width=.5\linewidth,height=.3\linewidth]{D:/filp/program/Kobe.git/data/peget.eps}
-  \end{center}
+%   \begin{center}
+%      \includegraphics[width=.5\linewidth,height=.3\linewidth]{D:/filp/program/Kobe.git/data/peget.eps}
+%   \end{center}
 
-\begin{itemize}
- \item
- \textcolor{orange}{The shooting percentage of each section can be seen that Kobe's shooting percentage is the lowest in the fourth quarter.}
- \item
- \textcolor{orange}{It can be seen that physical strength has some influence on Kobe's shooting percentage.}
-\end{itemize}
+% \begin{itemize}
+%  \item
+%  \textcolor{orange}{The shooting percentage of each section can be seen that Kobe's shooting percentage is the lowest in the fourth quarter.}
+%  \item
+%  \textcolor{orange}{It can be seen that physical strength has some influence on Kobe's shooting percentage.}
+% \end{itemize}
 
-\end{slide}
+% \end{slide}
 
 %final
 % \begin{slide}{Data visualization}
@@ -1491,33 +1497,47 @@ Step Three - \textcolor{red}{Visualization parameters and process the test data 
 %%==========================================================================================
 
 
-\section{Build the model}
+\section{Constructing emotion dictionary}
 \vspace{1cm}%%%这个东西能够把页码整对
 
-\begin{slide}{Build the model}
+\begin{slide}{Constructing emotion dictionary}
 
 \begin{itemize}
  \item
- \textcolor{blue}{We need to eliminate duplicate data before we build models.}
+ \textcolor{blue}{We need to count the frequency of each word.}
 
- \item
- \textcolor{blue}{Encoded the data by one-hot.}
+  \item
+  \textcolor{blue}{Based on this, an emotional dictionary is constructed.}
 
- \item
- \textcolor{blue}{Choose K-fold verification and the minimum value of loss and the number of optimal trees, the optimal value of maximum depth.}
+%  \item
+%  \textcolor{blue}{Choose K-fold verification and the minimum value of loss and the number of optimal trees, the optimal value of maximum depth.}
 
 \end{itemize}
 
 \end{slide}
 
+\begin{slide}[toc=,bm=]{Constructing emotion dictionary}
 
-\begin{slide}{Build and train the model and produce the submission data}
-
-  \begin{center}
-      \includegraphics[width=.7\linewidth,height=.5\linewidth]{D:/filp/program/Kobe.git/data/deptree.eps}
+   \begin{center}
+      \includegraphics[width=.8\linewidth,height=.4\linewidth]{D:/filp/program/Writer.git/data/dic.eps}
    \end{center}
-  
+
+\begin{itemize}
+  \item
+  \textcolor{blue}{The initial construction of emotion dictionary has been completed.}
+
+ \end{itemize}
+
 \end{slide}
+
+
+% \begin{slide}{Build and train the model and produce the submission data}
+
+%   \begin{center}
+%       \includegraphics[width=.7\linewidth,height=.5\linewidth]{D:/filp/program/Kobe.git/data/deptree.eps}
+%    \end{center}
+  
+% \end{slide}
 %%==========================================================================================
 %%
 % \begin{slide}[toc=,bm=]{Evaluation}
@@ -1846,14 +1866,14 @@ Step Three - \textcolor{red}{Visualization parameters and process the test data 
 % \emph{Group Outlying Aspects Mining} problem;
 \item
 \smallskip
-During this past month I have learned how use Latex,git and so on.
-There is no doubt that I have encountered a lot of problems in this short time.
-and it exercise my ability to learn independently.
+During this past few weeks , I've learned pattern recognition and 
+Matrix_Analysis from the Flip01 videos.Write some simple spider program.//
+In addition , I also learned some algorithms of machine learning,such as CNN , MLP , Alexnet , SVM.
 
 \item
 \smallskip
-After a month of study in flip00,I have benifit quite a lot.
-I not only learned how to use software,but also gained friends.
+In the coming month I would like to learn the notebook , accomplish the Kaggle competition title.
+And keep learning Matrix_Analysis and machine learning .
 
  \end{itemize}
 
